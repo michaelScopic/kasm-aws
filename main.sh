@@ -55,30 +55,27 @@ function init() {
     return
 }
 
-function install_nala() {
+function prep_kasm() {
     # Ask if user wants to install nala, if it is not already installed
     if [ ! "$(command -v nala >/dev/null)" ]; then
         msg_note "'nala' does not seem to be installed. Do you want to install it and use it instead instead of 'apt-get'?"
         read -rp "Install 'nala'? [y/N]: " install_nala_question
 
-        if [ "$install_nala_question" != "y" ]; then
+        if [ "$install_nala_question" == "y" ]; then
+            msg_note "Installing prerequisites for nala..."
+            sudo apt install -y --no-install-recommends libpython3.9 curl
+            curl -O https://deb.volian.org/volian/pool/main/n/nala-legacy/nala-legacy_0.11.0_amd64.deb &&
+                sudo dpkg -i ./*.deb &&
+                nala_or_apt="nala"
+        else
             msg_info "User denied installing nala."
             sleep 0.5
-            return 0
         fi
     else
         # If nala is found, use that and exit this function
         msg_note "Found 'nala'. Going to use that instead of 'apt-get'."
         nala_or_apt="nala"
-        return 0
     fi
-
-    # Install nala
-    msg_note "Installing prerequisites for nala..."
-    sudo apt install -y --no-install-recommends libpython3.9 curl
-    curl -O https://deb.volian.org/volian/pool/main/n/nala-legacy/nala-legacy_0.11.0_amd64.deb &&
-        sudo dpkg -i ./*.deb &&
-        nala_or_apt="nala"
 
     # Ask user if they want to try to get the fastest mirrors with nala
     read -rp "Do you want to try to fetch the fastest mirrors for 'nala'? [Y/n]: " fetch_mirror
@@ -89,10 +86,6 @@ function install_nala() {
         msg_info "User answered 'no'. Not fetching mirrors."
     fi
 
-    return
-}
-
-function prep_kasm() {
     echo -e "
 |-------------------------|
 |${yellow} Going to install Kasm.${reset}  |
@@ -240,19 +233,13 @@ function kasm_questions() {
 case $1 in
 all)
     init
-    install_nala
-    prep_kasm
-    kasm_questions
-    ;;
-kasm)
-    init
     prep_kasm
     kasm_questions
     ;;
 *)
     init &>/dev/null
     msg_error "Unknown argument: '$1'"
-    msg_error "Valid arguments are: 'all', 'kasm'"
+    msg_error "Valid arguments are: 'all'"
     exit 225
     ;;
 esac
