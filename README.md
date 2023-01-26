@@ -1,7 +1,8 @@
 # Deploy Kasm on AWS
 
 ## Purpose
-> This project was created to support Jupyter/Python, Python/Flask, Jupyter/Java and Java/Spring development workspaces in the Cloud.  There is a great interests, by many contributing to this project, in supporting powerful computing to underprivilaged individuals and communities.   Not to be lost in this project, is to encourage customization according to needs; school being the largest focus.    
+## Purpose
+> This project was created to support Jupyter/Python, Python/Flask, Jupyter/Java and Java/Spring development workspaces in the Cloud.  There is a great interests, by many contributing to this project, in supporting powerful computing to underprivilaged individuals and communities.   Not to be lost in this project, is to encourage customization according to needs; schools and students being the largest focus.    
 
 ## Resources needed
 
