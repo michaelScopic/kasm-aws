@@ -151,7 +151,9 @@ function kasm_questions() {
     read -rp "Enter swap size in megabites (or press 'enter' to let the script take care of swap) (eg: 4096): " swap_size
     echo ""
     # Ask user if they want to pass additional arguments to the script
-    msg_note "If you want to pass any addtional arguments to the Kasm install script, put them here. Leave blank to skip this."
+    msg_note "You can exit this script and run '${cyan}sudo bash .tmp/kasm_release/./install.sh --help${reset}' to see all possible options."
+    msg_note "If you want to pass any addtional arguments to the Kasm install script, put them here."
+    msg_note "Leaving this question empty will just skip this."
     read -rp "Additional arguments: " kasm_add_options
     echo ""
 
