@@ -112,7 +112,7 @@ function prep_kasm() {
     if [ "$nala_or_apt" == "apt" ]; then
         # Use 'nala' instead of 'apt-get' when installing Kasm
         msg_note "Modifying install script to use 'nala' instead of 'apt-get'..."
-        sed 's/apt-get/nala/g' install_dependencies.sh >install_dependencies-nala.sh
+        sed 's/apt-get/nala/g' install_dependencies.sh > install_dependencies-nala.sh
         mv install_dependencies-nala.sh install_dependencies.sh
     fi
 
