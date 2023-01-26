@@ -54,7 +54,7 @@ function init() {
 
 function install_nala() {
     # Install dependencies first
-    sudo apt install -y libpython3.9 tar sed
+    sudo apt install -y libpython3.9 tar sed curl
 
     # Install nala
     if [ "$(curl -O https://deb.volian.org/volian/pool/main/n/nala-legacy/nala-legacy_0.11.0_amd64.deb)" ]; then
