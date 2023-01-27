@@ -29,14 +29,17 @@ function init() {
 
     # - Set 'info', 'error', 'note', message functions -
     msg_info() {
+        # shellcheck disable=SC2145
         echo -e "${yellow}${bold}[INFO]${reset} $@ ${reset}"
     }
 
     msg_error() {
+        # shellcheck disable=SC2145
         echo -e "${red}${bold}[ERROR]${reset} $@ ${reset}"
     }
 
     msg_note() {
+        # shellcheck disable=SC2145
         echo -e "${blue}${bold}[NOTE]${reset} $@ ${reset}"
     }
 
@@ -46,9 +49,9 @@ function init() {
 
     # Remake build dir
     msg_note "Remaking '$BUILD_DIR'."
-    rm -rf $BUILD_DIR &>/dev/null
-    mkdir -v $BUILD_DIR &&
-        cd $BUILD_DIR
+    rm -rf "$BUILD_DIR" &>/dev/null
+    mkdir -v "$BUILD_DIR" &&
+        cd "$BUILD_DIR"
 
     echo ""
 
@@ -117,6 +120,7 @@ function prep_kasm() {
     # Extract tar
     msg_info "Extracting the Kasm .tar file..."
     if [ ! "$(tar -xf kasm_release*.tar.gz)" ]; then
+        # shellcheck disable=2164
         cd kasm_release
     else
         msg_error "Unable to extract the Kasm .tar file. Aborting!"
