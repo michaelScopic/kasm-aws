@@ -1,8 +1,12 @@
 # Deploy Kasm on AWS
 
+# ! ABANDONED REPO !
+
+The creator and contributors have abandoned this repository. I will keep this repo so that others can freely copy the script if needed. *Please be aware that this script is far from finished, adjust to your needs.*
+
 ## Purpose
 
-> There is a great interests, by many contributing to this project, in supporting powerful computing to underprivilaged individuals and communities.  The project has been created to support GitHub pages, Jupyter/Python, Python/Flask, Jupyter/Java and Java/Spring development workspaces in the Cloud.    Not to be lost in this project, is to encourage customization according to needs; schools and students being the community in largest focus.    
+> There is a great interest, by many contributing to this project, in supporting powerful computing for underprivileged individuals and communities.  The project has been created to support GitHub pages, Jupyter/Python, Python/Flask, Jupyter/Java, and Java/Spring development workspaces in the Cloud.    Not to be lost in this project, it is to encourage customization according to needs; schools and students are the community's largest focus.    
 
 ## Resources needed
 
@@ -15,12 +19,12 @@
   - 2 vCPUs
   - 4GB RAM
   - 50GB Storage
-- Terraform
-- Ansible
+- Terraform \**
+- Ansible \**
 - Bash
-- NixOS
+- NixOS \**
 
-\* These are subject to change
+\** These are subject to change
 
 ## Install docs
 
